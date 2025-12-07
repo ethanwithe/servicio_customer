@@ -1,50 +1,76 @@
-INSERT INTO clientes 
-(nombre, email, telefono, documento, direccion, fecha_nacimiento, genero, membresia, fecha_inicio, fecha_vencimiento, estado, visitas, notas, contacto_emergencia, telefono_emergencia) VALUES
+INSERT INTO clientes (
+    nombre, email, telefono, documento, direccion, fecha_nacimiento,
+    genero, membresia, fecha_inicio, fecha_vencimiento, estado,
+    visitas, notas, contacto_emergencia, telefono_emergencia,
+    fecha_registro, fecha_actualizacion
+)
+VALUES
+-- Cliente 1
+('Juan Pérez', 'juan.perez@example.com', '987654321', '12345678',
+ 'Av. Los Olivos 123', '1990-05-20', 'Masculino', 'Mensual',
+ '2025-01-01', '2025-01-31', 'Activa', 5,
+ 'Cliente frecuente. Prefiere entrenar por la mañana.',
+ 'María Pérez', '987111222', NOW(), NOW()),
 
--- 1 - 6: Tus registros corregidos
-('Juan Pérez Silva','juan.perez@email.com','+51 999 111 222','12345678','Av. Los Olivos 123, Lima','1985-05-20','Masculino','Premium Anual','2024-01-15','2025-01-15','Activa',145,'Cliente frecuente y disciplinado','María Pérez','+51 999 111 223'),
-('Ana Rodríguez','ana.rodriguez@email.com','+51 999 222 333','23456789','Calle Las Flores 456, Lima','1990-08-15','Femenino','Premium Anual','2024-06-10','2025-06-10','Activa',189,'Asiste al gimnasio por las mañanas','Carlos Rodríguez','+51 999 222 334'),
-('Elena Vargas','elena.vargas@email.com','+51 999 333 444','34567890','Jr. Los Pinos 789, Lima','1987-03-25','Femenino','Premium Anual','2024-03-01','2025-03-01','Activa',215,'Le gusta participar en clases grupales','Roberto Vargas','+51 999 333 445'),
-('Patricia Flores','patricia.flores@email.com','+51 999 444 555','45678901','Av. Principal 321, Lima','1992-11-10','Femenino','Semestral','2025-05-20','2025-11-20','Activa',92,'Cliente nueva, buena asistencia inicial','José Flores','+51 999 444 556'),
-('Fernando Castro','fernando.castro@email.com','+51 999 555 666','56789012','Calle San Martín 654, Lima','1988-07-18','Masculino','Semestral','2025-04-15','2025-10-15','Activa',108,'Interesado en rutinas de fuerza','Laura Castro','+51 999 555 667'),
-('Sofía Mendoza','sofia.mendoza@email.com','+51 999 666 777','67890123','Jr. Comercio 147, Lima','1999-05-13','Femenino','Semestral','2025-06-17','2025-12-17','Activa',99,'Solicita asesoría nutricional','Jose Mendez','+51 967 333 340'),
+-- Cliente 2
+('Ana Torres', 'ana.torres@example.com', '999888777', '87654321',
+ 'Jr. Primavera 456', '1985-08-15', 'Femenino', 'Trimestral',
+ '2024-12-01', '2025-03-01', 'Activa', 12,
+ 'Le gusta entrenamiento funcional.',
+ 'Carlos Torres', '912333444', NOW(), NOW()),
 
--- 7 - 50: Nuevos clientes
-('Luis Herrera','luis.herrera@email.com','+51 944 111 001','74012341','Av. Brasil 123, Lima','1989-02-11','Masculino','Mensual','2025-01-02','2025-02-02','Activa',21,'Prefiere entrenamiento funcional','Rosa Herrera','+51 944 111 002'),
-('María López','maria.lopez@email.com','+51 944 111 003','74012342','Jr. Amazonas 331, Callao','1996-07-18','Femenino','Trimestral','2024-12-10','2025-03-10','Activa',45,'Buena asistencia, interesada en cardio','Carlos López','+51 944 111 004'),
-('Pedro Salazar','pedro.salazar@email.com','+51 944 111 005','74012343','Av. Colonial 502, Callao','1984-11-07','Masculino','Mensual','2025-01-20','2025-02-20','Activa',11,'Recién inscrito, aún sin rutina fija','Julia Salazar','+51 944 111 006'),
-('Daniela Ruiz','daniela.ruiz@email.com','+51 944 111 007','74012344','Av. Argentina 800, Lima','1998-03-12','Femenino','Semestral','2025-02-01','2025-08-01','Activa',63,'Motivada, asiste en las tardes','Roberto Ruiz','+51 944 111 008'),
-('Héctor Jiménez','hector.jimenez@email.com','+51 944 111 009','74012345','Jr. Huánuco 432, Lima','1982-09-03','Masculino','Premium Anual','2024-09-05','2025-09-05','Activa',201,'Cliente antiguo, excelente historial','María Jiménez','+51 944 111 010'),
-('Lucía Gamarra','lucia.gamarra@email.com','+51 944 111 011','74012346','Av. Arequipa 1100, Lima','1995-01-23','Femenino','Trimestral','2025-01-12','2025-04-12','Activa',32,'Solicita plan de tonificación','Ana Gamarra','+51 944 111 012'),
-('Carlos Rojas','carlos.rojas@email.com','+51 944 111 013','74012347','Av. Salaverry 890, Lima','1987-10-14','Masculino','Mensual','2025-01-15','2025-02-15','Activa',17,'Le gusta el área de pesas','Mario Rojas','+51 944 111 014'),
-('Valeria Torres','valeria.torres@email.com','+51 944 111 015','74012348','Jr. Puno 220, Lima','1999-06-29','Femenino','Semestral','2025-02-04','2025-08-04','Activa',58,'Participa en clases de baile','Rosa Torres','+51 944 111 016'),
-('Ricardo Blanco','ricardo.blanco@email.com','+51 944 111 017','74012349','Av. Abancay 999, Lima','1985-11-19','Masculino','Premium Anual','2024-05-15','2025-05-15','Activa',170,'Constante y disciplinado','Luisa Blanco','+51 944 111 018'),
-('Karen Soto','karen.soto@email.com','+51 944 111 019','74012350','Av. Universitaria 400, SMP','1997-04-04','Femenino','Trimestral','2025-01-07','2025-04-07','Activa',29,'Solicita clases personalizadas','Henry Soto','+51 944 111 020'),
-('Jorge Medina','jorge.medina@email.com','+51 944 111 021','74012351','Av. Perú 522, SMP','1986-08-22','Masculino','Mensual','2025-01-27','2025-02-27','Activa',14,'Asistencia irregular, mejorar seguimiento','Pedro Medina','+51 944 111 022'),
-('Nathaly Campos','nathaly.campos@email.com','+51 944 111 023','74012352','Jr. Lampa 322, Lima','1994-02-16','Femenino','Semestral','2025-03-01','2025-09-01','Activa',73,'Recomendada para clases de yoga','Alicia Campos','+51 944 111 024'),
-('Marco Silva','marco.silva@email.com','+51 944 111 025','74012353','Av. Javier Prado 1230, Lima','1989-12-01','Masculino','Trimestral','2025-01-11','2025-04-11','Activa',44,'Buen desempeño en pesas','Rebeca Silva','+51 944 111 026'),
-('Paola Delgado','paola.delgado@email.com','+51 944 111 027','74012354','Av. Benavides 100, Miraflores','1993-03-18','Femenino','Mensual','2025-01-02','2025-02-02','Activa',19,'Interesada en pérdida de peso','Oscar Delgado','+51 944 111 028'),
-('Javier Ramos','javier.ramos@email.com','+51 944 111 029','74012355','Jr. Risso 330, Lince','1983-07-08','Masculino','Semestral','2025-02-14','2025-08-14','Activa',61,'Constante, asiste 4 veces por semana','María Ramos','+51 944 111 030'),
-('Carolina Pineda','carolina.pineda@email.com','+51 944 111 031','74012356','Av. Canadá 998, La Victoria','1991-09-27','Femenino','Mensual','2025-01-19','2025-02-19','Activa',23,'Le gusta entrenamiento con máquinas','Luis Pineda','+51 944 111 032'),
-('Esteban Huerta','esteban.huerta@email.com','+51 944 111 033','74012357','Av. Grau 413, Barranco','1984-03-03','Masculino','Trimestral','2025-01-22','2025-04-22','Activa',36,'Necesita evaluación física','Martha Huerta','+51 944 111 034'),
-('Samantha Vega','samantha.vega@email.com','+51 944 111 035','74012358','Jr. Moquegua 450, Lima','1998-05-25','Femenino','Semestral','2025-03-05','2025-09-05','Activa',67,'Buena condición física','Daniel Vega','+51 944 111 036'),
-('Josué Paredes','josue.paredes@email.com','+51 944 111 037','74012359','Av. Faucett 700, Callao','2000-02-08','Masculino','Mensual','2025-01-12','2025-02-12','Activa',16,'Requiere plan de musculación','Betty Paredes','+51 944 111 038'),
-('Isabel Cruz','isabel.cruz@email.com','+51 944 111 039','74012360','Av. Tomás Valle 450, Lima','1992-06-30','Femenino','Trimestral','2025-01-03','2025-04-03','Activa',28,'Prefiere entrenamiento cardiovascular','Nancy Cruz','+51 944 111 040'),
-('Miguel Torres','miguel.torres@email.com','+51 944 111 041','74012361','Av. Angamos 900, Surquillo','1986-01-17','Masculino','Semestral','2025-03-07','2025-09-07','Activa',69,'Se recomienda control de dieta','Sandra Torres','+51 944 111 042'),
-('Pamela Chávez','pamela.chavez@email.com','+51 944 111 043','74012362','Av. Panamá 300, Miraflores','1997-09-09','Femenino','Premium Anual','2024-10-10','2025-10-10','Activa',210,'Excelente historial de visitas','Jose Chávez','+51 944 111 044'),
-('Gerardo León','gerardo.leon@email.com','+51 944 111 045','74012363','Av. España 780, Breña','1983-06-05','Masculino','Mensual','2025-01-25','2025-02-25','Activa',15,'Entrenamiento básico por ahora','María León','+51 944 111 046'),
-('Denisse Aguilar','denisse.aguilar@email.com','+51 944 111 047','74012364','Av. Quito 510, Lima','1995-10-12','Femenino','Trimestral','2025-01-20','2025-04-20','Activa',33,'Alta motivación','Rosa Aguilar','+51 944 111 048'),
-('Óscar Pinto','oscar.pinto@email.com','+51 944 111 049','74012365','Av. Canta Callao 311, SMP','1988-04-28','Masculino','Semestral','2025-03-09','2025-09-09','Activa',75,'Requiere plan de fuerza','Julia Pinto','+51 944 111 050'),
-('Gabriela Luna','gabriela.luna@email.com','+51 944 111 051','74012366','Av. Lima Norte 234, Lima','1994-11-14','Femenino','Semestral','2025-02-10','2025-08-10','Activa',52,'Participa en clases de step','Carlos Luna','+51 944 111 052'),
-('Santiago Ramos','santiago.ramos@email.com','+51 944 111 053','74012367','Av. Las Palmeras 231, Los Olivos','1987-03-19','Masculino','Mensual','2025-01-09','2025-02-09','Activa',18,'Entrena por las noches','Teresa Ramos','+51 944 111 054'),
-('Melissa Rivera','melissa.rivera@email.com','+51 944 111 055','74012368','Av. Santa Rosa 441, SMP','1999-12-22','Femenino','Trimestral','2025-01-28','2025-04-28','Activa',34,'Solicita asesoría alimentaria','Luis Rivera','+51 944 111 056'),
-('Julio Castro','julio.castro@email.com','+51 944 111 057','74012369','Av. Universitaria 601, Lima','1988-09-14','Masculino','Semestral','2025-02-22','2025-08-22','Activa',72,'Constante, le gustan pesas avanzadas','Marina Castro','+51 944 111 058'),
-('Natalia Ríos','natalia.rios@email.com','+51 944 111 059','74012370','Av. Antúnez de Mayolo 400, Los Olivos','1996-05-16','Femenino','Premium Anual','2024-11-15','2025-11-15','Activa',198,'Participa en clases premium','Pedro Ríos','+51 944 111 060'),
-('Kevin Ortega','kevin.ortega@email.com','+51 944 111 061','74012371','Jr. Lima 220, Miraflores','1993-03-01','Masculino','Trimestral','2025-01-10','2025-04-10','Activa',31,'Interesado en rutina de hipertrofia','Rosa Ortega','+51 944 111 062'),
-('Cindy Alarcón','cindy.alarcon@email.com','+51 944 111 063','74012372','Av. Los Próceres 700, SJL','1998-10-21','Femenino','Mensual','2025-01-14','2025-02-14','Activa',20,'Le gusta el área de spinning','Ana Alarcón','+51 944 111 064'),
-('Jhonatan Paredes','jhonatan.paredes@email.com','+51 944 111 065','74012373','Av. Las Torres 233, Ate','1984-01-09','Masculino','Semestral','2025-02-18','2025-08-18','Activa',70,'Necesita constancia','Luis Paredes','+51 944 111 066'),
-('Angie Carranza','angie.carranza@email.com','+51 944 111 067','74012374','Av. Los Alisos 333, Comas','1997-01-30','Femenino','Trimestral','2025-01-01','2025-04-01','Activa',27,'Asiste a clases de baile','María Carranza','+51 944 111 068'),
-('Rodrigo Aguilar','rodrigo.aguilar@email.com','+51 944 111 069','74012375','Av. Universitaria 222, Comas','1992-07-11','Masculino','Mensual','2025-01-26','2025-02-26','Activa',13,'Cliente nuevo','Carmen Aguilar','+51 944 111 070'),
-('Ximena Valdez','ximena.valdez@email.com','+51 944 111 071','74012376','Av. Manco Cápac 500, Lima','1998-08-04','Femenino','Premium Anual','2024-04-20','2025-04-20','Activa',221,'Excelente historial, muy activa','Luis Valdez','+51 944 111 072'),
-('Sebastián Meza','sebastian.meza@email.com','+51 944 111 073','74012377','Av. Primavera 1120, Surco','1995-10-25','Masculino','Semestral','2025-03-02','2025-09-02','Activa',66,'Prefiere máquinas avanzadas','Rosa Meza','+51 944 111 074'),
-('Fiorella Aguilar','fiorella.aguilar@email.com','+51 944 111 075','74012378','Av. Benavides 440, Miraflores','2000-06-20','Femenino','Mensual','2025-01-18','2025-02-18','Activa',12,'Interesada en tonificación','Julia Aguilar','+51 944 111 076');
+-- Cliente 3
+('Luis Rojas', 'luis.rojas@example.com', '923456789', '44556677',
+ 'Av. Arequipa 789', '1992-11-10', 'Masculino', 'Semestral',
+ '2024-10-10', '2025-04-10', 'Por Vencer', 20,
+ 'Ha solicitado rutina personalizada.',
+ 'Lucía Rojas', '911222333', NOW(), NOW()),
+
+-- Cliente 4
+('Carla Fernández', 'carla.fernandez@example.com', '955667788', '99887766',
+ 'Calle Las Gardenias 321', '1996-01-30', 'Femenino', 'Premium Anual',
+ '2024-01-01', '2025-01-01', 'Vencida', 45,
+ 'Cliente VIP. Acceso a sauna y piscina.',
+ 'Pedro Fernández', '944333222', NOW(), NOW()),
+
+-- Cliente 5
+('Miguel Salazar', 'miguel.salazar@example.com', '912345678', '11223344',
+ 'Av. Universitaria 654', '1988-03-11', 'Masculino', 'Mensual',
+ '2025-01-15', '2025-02-15', 'Activa', 3,
+ 'Entrena en horarios nocturnos.',
+ 'Sofía Salazar', '955444333', NOW(), NOW()),
+
+-- Cliente 6
+('Rosa Quispe', 'rosa.quispe@example.com', '933221100', '77889900',
+ 'Jr. San Pedro 987', '1978-07-25', 'Femenino', 'Familiar',
+ '2024-11-05', '2025-02-05', 'Por Vencer', 18,
+ 'Viene con su familia, 3 miembros.',
+ 'Juan Quispe', '900111222', NOW(), NOW()),
+
+-- Cliente 7
+('Alberto Gómez', 'alberto.gomez@example.com', '944556677', '55443322',
+ 'Av. Colonial 456', '1995-12-12', 'Masculino', 'Trimestral',
+ '2024-10-01', '2025-01-01', 'Vencida', 10,
+ 'Suspende entrenamientos por viaje.',
+ 'Erika Gómez', '944000111', NOW(), NOW()),
+
+-- Cliente 8
+('Lucía Mendoza', 'lucia.mendoza@example.com', '988776655', '66778899',
+ 'Calle Los Pinos 741', '2000-02-18', 'Femenino', 'Mensual',
+ '2025-01-10', '2025-02-10', 'Activa', 1,
+ 'Recién inscrita.',
+ 'María Mendoza', '966555444', NOW(), NOW()),
+
+-- Cliente 9
+('Jorge Castillo', 'jorge.castillo@example.com', '977665544', '33445566',
+ 'Av. Grau 555', '1983-09-09', 'Masculino', 'Semestral',
+ '2024-07-15', '2025-01-15', 'Por Vencer', 30,
+ 'Participa en clases de box.',
+ 'Ricardo Castillo', '955666777', NOW(), NOW()),
+
+-- Cliente 10
+('Patricia López', 'patricia.lopez@example.com', '922110099', '22113344',
+ 'Jr. Las Rosas 159', '1999-04-02', 'Femenino', 'Familiar',
+ '2024-05-20', '2025-05-20', 'Activa', 22,
+ 'Asiste con su pareja e hijos.',
+ 'José López', '900222333', NOW(), NOW());

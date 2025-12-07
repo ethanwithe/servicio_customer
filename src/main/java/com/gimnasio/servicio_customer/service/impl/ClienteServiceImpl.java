@@ -187,7 +187,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Transactional(readOnly = true)
     public EstadisticasDTO obtenerEstadisticas() {
         log.info("Obteniendo estadísticas de clientes");
-        
+
         try {
         long totalClientes = clienteRepository.count();
         long membresiasActivas = clienteRepository.countMembresiasActivas();
@@ -231,7 +231,7 @@ public class ClienteServiceImpl implements ClienteService {
             .nuevosClientes(0L)
             .tasaRetencion(0.0)
             .distribucionMembresias(new HashMap<>())
-            .crecimientoMensual(new ArrayList<>()) 
+            .crecimientoMensual(new ArrayList<>())
             .build();
     }
 }

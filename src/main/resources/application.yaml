@@ -1,7 +1,7 @@
 spring:
   application:
     name: servicio-customer
-    
+
   datasource:
     url: jdbc:mysql://gondola.proxy.rlwy.net:54615/railway?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
@@ -10,20 +10,22 @@ spring:
     hikari:
       maximum-pool-size: 5
       connection-timeout: 30000
-    
+
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
+    defer-datasource-initialization: true      # ⬅ CLAVE: Ejecuta data.sql DESPUÉS de crear tablas
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
-    sql:
-      init:
-        mode: always        # ⬅ Ejecuta data.sql siempre
-        encoding: UTF-8     # ⬅ Evita errores de caracteres
-      
+
+  sql:
+    init:
+      mode: never                              # ⬅ Ejecuta data.sql siempre
+      encoding: UTF-8                          # ⬅ Evita errores de caracteres
+
 server:
   port: ${PORT:8084}
   servlet:
@@ -37,7 +39,7 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-    hostname: servicio-customer.railway.internal
+    hostname: servicio-inventario.railway.internal
     instance-id: ${spring.application.name}:${random.value}
 
 management:
@@ -48,4 +50,3 @@ management:
   endpoint:
     health:
       show-details: always
-
