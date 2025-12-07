@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.gimnasio.servicio_customer.dto.ClienteDTO;
+import com.gimnasio.servicio_customer.dto.ClienteRequestDTO;
 import com.gimnasio.servicio_customer.dto.EstadisticasDTO;
 import com.gimnasio.servicio_customer.model.Cliente;
 
 public interface ClienteService {
 
-    ClienteDTO crearCliente(Cliente cliente);
+    ClienteDTO crearCliente(ClienteRequestDTO cliente);
+
+    ClienteDTO actualizarCliente(Long id, ClienteRequestDTO request);
 
     ClienteDTO obtenerClientePorId(Long id);
 
@@ -20,8 +23,6 @@ public interface ClienteService {
     List<ClienteDTO> obtenerClientesPorMembresia(String membresia);
 
     List<ClienteDTO> obtenerMembresiasPorVencer(int dias);
-
-    ClienteDTO actualizarCliente(Long id, Cliente cliente);
 
     void eliminarCliente(Long id);
 

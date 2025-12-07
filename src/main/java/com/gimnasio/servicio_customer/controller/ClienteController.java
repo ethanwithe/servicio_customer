@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gimnasio.servicio_customer.dto.ClienteDTO;
+import com.gimnasio.servicio_customer.dto.ClienteRequestDTO;
 import com.gimnasio.servicio_customer.dto.EstadisticasDTO;
 import com.gimnasio.servicio_customer.model.Cliente;
 import com.gimnasio.servicio_customer.service.ClienteService;
@@ -34,11 +35,21 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<ClienteDTO> crearCliente(@Valid @RequestBody Cliente cliente) {
-        log.info("POST /api/clientes - Creando nuevo cliente: {}", cliente.getEmail());
-        ClienteDTO nuevoCliente = clienteService.crearCliente(cliente);
-        return new ResponseEntity<>(nuevoCliente, HttpStatus.CREATED);
+    public ResponseEntity<ClienteDTO> crearCliente(@Valid @RequestBody ClienteRequestDTO dto) {
+        log.info("Creando cliente {}", dto.getEmail());
+        ClienteDTO nuevoCliente = clienteService.crearCliente(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoCliente);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteDTO> actualizarCliente(
+            @PathVariable Long id,
+            @Valid @RequestBody ClienteRequestDTO dto) {
+        ClienteDTO clienteActualizado = clienteService.actualizarCliente(id, dto);
+        return ResponseEntity.ok(clienteActualizado);
+    }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ClienteDTO> obtenerClientePorId(@PathVariable Long id) {
@@ -70,14 +81,6 @@ public class ClienteController {
             @RequestParam(defaultValue = "30") int dias) {
         List<ClienteDTO> clientes = clienteService.obtenerMembresiasPorVencer(dias);
         return ResponseEntity.ok(clientes);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<ClienteDTO> actualizarCliente(
-            @PathVariable Long id,
-            @RequestBody Cliente cliente) {
-        ClienteDTO clienteActualizado = clienteService.actualizarCliente(id, cliente);
-        return ResponseEntity.ok(clienteActualizado);
     }
 
     @DeleteMapping("/{id}")

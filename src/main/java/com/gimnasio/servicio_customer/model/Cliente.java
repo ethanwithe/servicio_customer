@@ -36,6 +36,9 @@ public class Cliente {
 
     @Column(length = 20)
     private String telefono;
+    
+    @Column(length = 100)
+    private String password;
 
     @Column(unique = true, length = 20)
     private String documento;

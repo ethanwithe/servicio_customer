@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gimnasio.servicio_customer.dto.ClienteDTO;
+import com.gimnasio.servicio_customer.dto.ClienteRequestDTO;
 import com.gimnasio.servicio_customer.dto.EstadisticasDTO;
 import com.gimnasio.servicio_customer.exception.ClienteNotFoundException;
 import com.gimnasio.servicio_customer.model.Cliente;
@@ -31,19 +32,40 @@ public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
 
     @Override
-    public ClienteDTO crearCliente(Cliente cliente) {
-        log.info("Creando nuevo cliente: {}", cliente.getNombre());
+    public ClienteDTO crearCliente( ClienteRequestDTO request) {
+        log.info("Creando nuevo cliente: {}", request.getNombre());
 
-        if (clienteRepository.existsByEmail(cliente.getEmail())) {
+        if (clienteRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("El email ya está registrado");
         }
 
-        if (cliente.getDocumento() != null &&
-            clienteRepository.existsByDocumento(cliente.getDocumento())) {
+        if (request.getDocumento() != null &&
+            clienteRepository.existsByDocumento(request.getDocumento())) {
             throw new IllegalArgumentException("El documento ya está registrado");
         }
 
+     // Convertir DTO → Entidad
+        Cliente cliente = Cliente.builder()
+                .nombre(request.getNombre())
+                .email(request.getEmail())
+                .telefono(request.getTelefono())
+                .password(request.getPassword()) 
+                .documento(request.getDocumento())
+                .direccion(request.getDireccion())
+                .fechaNacimiento(request.getFechaNacimiento())
+                .genero(request.getGenero())
+                .membresia(request.getMembresia())
+                .fechaInicio(request.getFechaInicio())
+                .fechaVencimiento(request.getFechaVencimiento())
+                .contactoEmergencia(request.getContactoEmergencia())
+                .telefonoEmergencia(request.getTelefonoEmergencia())
+                .notas(request.getNotas())
+                .estado("Activa")
+                .visitas(0)
+                .build();
+
         Cliente nuevoCliente = clienteRepository.save(cliente);
+
         log.info("Cliente creado exitosamente con ID: {}", nuevoCliente.getId());
 
         return ClienteDTO.fromEntity(nuevoCliente);
@@ -97,33 +119,29 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ClienteDTO actualizarCliente(Long id, Cliente clienteActualizado) {
+    public ClienteDTO actualizarCliente(Long id, ClienteRequestDTO request) {
         log.info("Actualizando cliente con ID: {}", id);
 
         Cliente cliente = clienteRepository.findById(id)
             .orElseThrow(() -> new ClienteNotFoundException(id));
 
-        if (clienteActualizado.getNombre() != null) {
-            cliente.setNombre(clienteActualizado.getNombre());
-        }
-        if (clienteActualizado.getTelefono() != null) {
-            cliente.setTelefono(clienteActualizado.getTelefono());
-        }
-        if (clienteActualizado.getDireccion() != null) {
-            cliente.setDireccion(clienteActualizado.getDireccion());
-        }
-        if (clienteActualizado.getContactoEmergencia() != null) {
-            cliente.setContactoEmergencia(clienteActualizado.getContactoEmergencia());
-        }
-        if (clienteActualizado.getTelefonoEmergencia() != null) {
-            cliente.setTelefonoEmergencia(clienteActualizado.getTelefonoEmergencia());
-        }
-        if (clienteActualizado.getNotas() != null) {
-            cliente.setNotas(clienteActualizado.getNotas());
-        }
+        // Actualizar campos solo si vienen en el request
+        if (request.getNombre() != null) cliente.setNombre(request.getNombre());
+        if (request.getTelefono() != null) cliente.setTelefono(request.getTelefono());
+        if (request.getDireccion() != null) cliente.setDireccion(request.getDireccion());
+        if (request.getContactoEmergencia() != null) cliente.setContactoEmergencia(request.getContactoEmergencia());
+        if (request.getTelefonoEmergencia() != null) cliente.setTelefonoEmergencia(request.getTelefonoEmergencia());
+        if (request.getNotas() != null) cliente.setNotas(request.getNotas());
+        if (request.getPassword() != null) cliente.setPassword(request.getPassword()); // opcional: codificar
+        if (request.getMembresia() != null) cliente.setMembresia(request.getMembresia());
+        if (request.getFechaInicio() != null) cliente.setFechaInicio(request.getFechaInicio());
+        if (request.getFechaVencimiento() != null) cliente.setFechaVencimiento(request.getFechaVencimiento());
+        if (request.getGenero() != null) cliente.setGenero(request.getGenero());
+        if (request.getDocumento() != null) cliente.setDocumento(request.getDocumento());
+        if (request.getEmail() != null) cliente.setEmail(request.getEmail());
 
         Cliente clienteGuardado = clienteRepository.save(cliente);
-        log.info("Cliente actualizado exitosamente");
+        log.info("Cliente actualizado exitosamente con ID: {}", clienteGuardado.getId());
 
         return ClienteDTO.fromEntity(clienteGuardado);
     }

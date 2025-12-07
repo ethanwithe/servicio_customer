@@ -1,76 +1,24 @@
-INSERT INTO clientes (
-    nombre, email, telefono, documento, direccion, fecha_nacimiento,
-    genero, membresia, fecha_inicio, fecha_vencimiento, estado,
-    visitas, notas, contacto_emergencia, telefono_emergencia,
-    fecha_registro, fecha_actualizacion
-)
+/*DELETE FROM clientes;*/
+INSERT INTO clientes
+(nombre, email, telefono, password, documento, direccion, fecha_nacimiento, genero, membresia, fecha_inicio, fecha_vencimiento, estado, visitas, notas, contacto_emergencia, telefono_emergencia, fecha_registro, fecha_actualizacion)
 VALUES
--- Cliente 1
-('Juan Pérez', 'juan.perez@example.com', '987654321', '12345678',
- 'Av. Los Olivos 123', '1990-05-20', 'Masculino', 'Mensual',
- '2025-01-01', '2025-01-31', 'Activa', 5,
- 'Cliente frecuente. Prefiere entrenar por la mañana.',
- 'María Pérez', '987111222', NOW(), NOW()),
-
--- Cliente 2
-('Ana Torres', 'ana.torres@example.com', '999888777', '87654321',
- 'Jr. Primavera 456', '1985-08-15', 'Femenino', 'Trimestral',
- '2024-12-01', '2025-03-01', 'Activa', 12,
- 'Le gusta entrenamiento funcional.',
- 'Carlos Torres', '912333444', NOW(), NOW()),
-
--- Cliente 3
-('Luis Rojas', 'luis.rojas@example.com', '923456789', '44556677',
- 'Av. Arequipa 789', '1992-11-10', 'Masculino', 'Semestral',
- '2024-10-10', '2025-04-10', 'Por Vencer', 20,
- 'Ha solicitado rutina personalizada.',
- 'Lucía Rojas', '911222333', NOW(), NOW()),
-
--- Cliente 4
-('Carla Fernández', 'carla.fernandez@example.com', '955667788', '99887766',
- 'Calle Las Gardenias 321', '1996-01-30', 'Femenino', 'Premium Anual',
- '2024-01-01', '2025-01-01', 'Vencida', 45,
- 'Cliente VIP. Acceso a sauna y piscina.',
- 'Pedro Fernández', '944333222', NOW(), NOW()),
-
--- Cliente 5
-('Miguel Salazar', 'miguel.salazar@example.com', '912345678', '11223344',
- 'Av. Universitaria 654', '1988-03-11', 'Masculino', 'Mensual',
- '2025-01-15', '2025-02-15', 'Activa', 3,
- 'Entrena en horarios nocturnos.',
- 'Sofía Salazar', '955444333', NOW(), NOW()),
-
--- Cliente 6
-('Rosa Quispe', 'rosa.quispe@example.com', '933221100', '77889900',
- 'Jr. San Pedro 987', '1978-07-25', 'Femenino', 'Familiar',
- '2024-11-05', '2025-02-05', 'Por Vencer', 18,
- 'Viene con su familia, 3 miembros.',
- 'Juan Quispe', '900111222', NOW(), NOW()),
-
--- Cliente 7
-('Alberto Gómez', 'alberto.gomez@example.com', '944556677', '55443322',
- 'Av. Colonial 456', '1995-12-12', 'Masculino', 'Trimestral',
- '2024-10-01', '2025-01-01', 'Vencida', 10,
- 'Suspende entrenamientos por viaje.',
- 'Erika Gómez', '944000111', NOW(), NOW()),
-
--- Cliente 8
-('Lucía Mendoza', 'lucia.mendoza@example.com', '988776655', '66778899',
- 'Calle Los Pinos 741', '2000-02-18', 'Femenino', 'Mensual',
- '2025-01-10', '2025-02-10', 'Activa', 1,
- 'Recién inscrita.',
- 'María Mendoza', '966555444', NOW(), NOW()),
-
--- Cliente 9
-('Jorge Castillo', 'jorge.castillo@example.com', '977665544', '33445566',
- 'Av. Grau 555', '1983-09-09', 'Masculino', 'Semestral',
- '2024-07-15', '2025-01-15', 'Por Vencer', 30,
- 'Participa en clases de box.',
- 'Ricardo Castillo', '955666777', NOW(), NOW()),
-
--- Cliente 10
-('Patricia López', 'patricia.lopez@example.com', '922110099', '22113344',
- 'Jr. Las Rosas 159', '1999-04-02', 'Femenino', 'Familiar',
- '2024-05-20', '2025-05-20', 'Activa', 22,
- 'Asiste con su pareja e hijos.',
- 'José López', '900222333', NOW(), NOW());
+('Juan Pérez', 'juan.perez@example.com', '987654321', 'pass123', 'DNI123456', 'Av. Siempre Viva 123', '1990-05-15', 'Masculino', 'Premium Anual', '2025-01-01', '2026-01-01', 'Activa', 5, 'Cliente VIP', 'María Pérez', '987654322', NOW(), NOW()),
+('Ana Gómez', 'ana.gomez@example.com', '987654323', 'pass456', 'DNI654321', 'Calle Falsa 456', '1992-08-22', 'Femenino', 'Mensual', '2025-11-01', '2025-12-01', 'Activa', 2, '', 'Pedro Gómez', '987654324', NOW(), NOW()),
+('Carlos López', 'carlos.lopez@example.com', '987654325', 'pass789', 'DNI112233', 'Jr. Los Olivos 789', '1985-03-10', 'Masculino', 'Trimestral', '2025-09-01', '2025-12-01', 'Por Vencer', 10, 'Pago adelantado', 'Lucía López', '987654326', NOW(), NOW()),
+('Marta Sánchez', 'marta.sanchez@example.com', '987654327', 'pass321', 'DNI445566', 'Av. Las Flores 321', '1995-12-30', 'Femenino', 'Semestral', '2025-06-01', '2025-12-01', 'Por Vencer', 3, '', 'José Sánchez', '987654328', NOW(), NOW()),
+('Luis Fernández', 'luis.fernandez@example.com', '987654329', 'pass654', 'DNI778899', 'Calle Los Pinos 654', '1988-07-20', 'Masculino', 'Mensual', '2025-11-15', '2025-12-15', 'Activa', 0, '', 'Ana Fernández', '987654330', NOW(), NOW()),
+('Sofía Ramírez', 'sofia.ramirez@example.com', '987654331', 'pass111', 'DNI998877', 'Jr. Las Margaritas 12', '1993-04-18', 'Femenino', 'Trimestral', '2025-09-01', '2025-12-01', 'Por Vencer', 4, '', 'Luis Ramírez', '987654332', NOW(), NOW()),
+('Diego Torres', 'diego.torres@example.com', '987654333', 'pass222', 'DNI556677', 'Av. Los Robles 56', '1982-11-02', 'Masculino', 'Premium Anual', '2025-01-01', '2026-01-01', 'Activa', 15, 'Cliente antiguo', 'Claudia Torres', '987654334', NOW(), NOW()),
+('Valentina Morales', 'valentina.morales@example.com', '987654335', 'pass333', 'DNI334455', 'Calle Los Jazmines 89', '1997-09-14', 'Femenino', 'Mensual', '2025-11-10', '2025-12-10', 'Activa', 1, '', 'Héctor Morales', '987654336', NOW(), NOW()),
+('Andrés Castillo', 'andres.castillo@example.com', '987654337', 'pass444', 'DNI223344', 'Jr. Los Laureles 34', '1990-01-25', 'Masculino', 'Semestral', '2025-06-01', '2025-12-01', 'Por Vencer', 7, '', 'Paola Castillo', '987654338', NOW(), NOW()),
+('Isabella Mendoza', 'isabella.mendoza@example.com', '987654339', 'pass555', 'DNI667788', 'Av. Los Claveles 45', '1994-02-18', 'Femenino', 'Trimestral', '2025-09-01', '2025-12-01', 'Por Vencer', 6, '', 'Ricardo Mendoza', '987654340', NOW(), NOW()),
+('Fernando Rojas', 'fernando.rojas@example.com', '987654341', 'pass666', 'DNI445577', 'Calle Las Rosas 78', '1986-05-09', 'Masculino', 'Mensual', '2025-11-20', '2025-12-20', 'Activa', 2, '', 'Clara Rojas', '987654342', NOW(), NOW()),
+('Camila Vargas', 'camila.vargas@example.com', '987654343', 'pass777', 'DNI223355', 'Jr. Las Violetas 90', '1991-08-30', 'Femenino', 'Mensual', '2025-11-05', '2025-12-05', 'Activa', 0, '', 'Diego Vargas', '987654344', NOW(), NOW()),
+('Javier Díaz', 'javier.diaz@example.com', '987654345', 'pass888', 'DNI556688', 'Av. Los Tulipanes 11', '1989-12-12', 'Masculino', 'Trimestral', '2025-09-01', '2025-12-01', 'Por Vencer', 9, '', 'Marta Díaz', '987654346', NOW(), NOW()),
+('Natalia Herrera', 'natalia.herrera@example.com', '987654347', 'pass999', 'DNI778811', 'Calle Las Gardenias 22', '1995-07-07', 'Femenino', 'Semestral', '2025-06-01', '2025-12-01', 'Por Vencer', 3, '', 'Luis Herrera', '987654348', NOW(), NOW()),
+('Ricardo Medina', 'ricardo.medina@example.com', '987654349', 'pass000', 'DNI889900', 'Jr. Los Almendros 33', '1987-03-03', 'Masculino', 'Premium Anual', '2025-01-01', '2026-01-01', 'Activa', 12, 'Cliente destacado', 'Ana Medina', '987654350', NOW(), NOW()),
+('Elena Cruz', 'elena.cruz@example.com', '987654351', 'passabc', 'DNI112244', 'Av. Las Magnolias 44', '1992-10-10', 'Femenino', 'Mensual', '2025-11-12', '2025-12-12', 'Activa', 1, '', 'Pedro Cruz', '987654352', NOW(), NOW()),
+('Santiago Rivas', 'santiago.rivas@example.com', '987654353', 'passdef', 'DNI334466', 'Calle Los Naranjos 55', '1985-06-06', 'Masculino', 'Trimestral', '2025-09-01', '2025-12-01', 'Por Vencer', 8, '', 'Laura Rivas', '987654354', NOW(), NOW()),
+('Lucía Paredes', 'lucia.paredes@example.com', '987654355', 'passghi', 'DNI556699', 'Jr. Los Lirios 66', '1996-04-04', 'Femenino', 'Semestral', '2025-06-01', '2025-12-01', 'Por Vencer', 2, '', 'Juan Paredes', '987654356', NOW(), NOW()),
+('Miguel Soto', 'miguel.soto@example.com', '987654357', 'passjkl', 'DNI667799', 'Av. Las Acacias 77', '1988-09-09', 'Masculino', 'Mensual', '2025-11-18', '2025-12-18', 'Activa', 0, '', 'Elena Soto', '987654358', NOW(), NOW()),
+('Valeria León', 'valeria.leon@example.com', '987654359', 'passmno', 'DNI778822', 'Calle Los Tulipanes 88', '1993-12-12', 'Femenino', 'Mensual', '2025-11-03', '2025-12-03', 'Activa', 1, '', 'Mario León', '987654360', NOW(), NOW());
